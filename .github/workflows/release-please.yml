@@ -35,7 +35,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v6
       - name: Package the installable plugin
         env:
           TAG: ${{ needs.release-please.outputs.tag_name }}
