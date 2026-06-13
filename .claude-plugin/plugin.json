@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
+  "name": "kasas",
+  "displayName": "kasas — financial planning & review",
+  "version": "0.1.0",
+  "description": "Full MCP access to your kasas financial ledger, plus skills for charts, cash-flow, net worth, spending analysis, categorization, periodic review, and forward-looking financial planning. Works in Claude Code and Claude Desktop.",
+  "author": {
+    "name": "Paul Meier"
+  },
+  "homepage": "https://github.com/paulmeier/kasas-skill",
+  "repository": "https://github.com/paulmeier/kasas-skill",
+  "license": "MIT",
+  "keywords": [
+    "kasas",
+    "mcp",
+    "finance",
+    "financial-planning",
+    "budgeting",
+    "charts",
+    "ledger",
+    "personal-finance"
+  ],
+  "userConfig": {
+    "kasas_url": {
+      "type": "string",
+      "title": "kasas MCP URL",
+      "description": "Streamable-HTTP MCP endpoint of your kasas instance, e.g. http://localhost:8080/mcp",
+      "default": "http://localhost:8080/mcp",
+      "required": true
+    },
+    "kasas_token": {
+      "type": "string",
+      "title": "kasas dashboard token",
+      "description": "Bearer token for kasas (the dashboard token, NOT an API key — MCP-over-HTTP requires it). Leave blank only if your kasas runs unauthenticated on a trusted network.",
+      "sensitive": true,
+      "required": false
+    }
+  }
+}

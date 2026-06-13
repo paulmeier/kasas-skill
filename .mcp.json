@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "kasas": {
+      "type": "http",
+      "url": "${user_config.kasas_url}",
+      "headers": {
+        "Authorization": "Bearer ${user_config.kasas_token}"
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-marketplace.json",
+  "name": "kasas",
+  "description": "The kasas plugin: full MCP access to your kasas ledger plus financial charting, review, and planning skills.",
+  "owner": {
+    "name": "Paul Meier"
+  },
+  "plugins": [
+    {
+      "name": "kasas",
+      "source": "./",
+      "description": "Talk to your kasas financial ledger over MCP, build charts and graphs, run periodic financial reviews, and do forward-looking financial planning — in Claude Code or Claude Desktop.",
+      "license": "MIT",
+      "keywords": ["kasas", "mcp", "finance", "charts", "financial-planning"]
+    }
+  ]
+}

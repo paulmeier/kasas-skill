@@ -1,0 +1,26 @@
+{
+  "//": "kasas MCP for Claude Desktop. Pick ONE of the two 'kasas' blocks below and merge it into your real claude_desktop_config.json (Settings -> Developer -> Edit Config). Remove the comment keys before saving.",
+
+  "mcpServers": {
+    "kasas": {
+      "//": "OPTION A (recommended for a local kasas): stdio subprocess. No token needed - it is a local process. Update the two absolute paths.",
+      "command": "/usr/local/bin/kasas",
+      "args": ["-config", "/path/to/your/config.toml", "mcp"]
+    },
+
+    "kasas-http-alternative": {
+      "//": "OPTION B: bridge to kasas MCP-over-HTTP (/mcp) using the mcp-remote shim, so you can send the dashboard token as a bearer header. Requires Node. Delete the 'kasas' stdio block above if you use this, and rename this key to 'kasas'.",
+      "command": "npx",
+      "args": [
+        "-y",
+        "mcp-remote",
+        "http://localhost:8080/mcp",
+        "--header",
+        "Authorization: Bearer ${KASAS_DASHBOARD_TOKEN}"
+      ],
+      "env": {
+        "KASAS_DASHBOARD_TOKEN": "paste-your-kasas-dashboard-token-here"
+      }
+    }
+  }
+}

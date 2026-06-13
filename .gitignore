@@ -1,0 +1,14 @@
+# Generated charts and scratch data
+*.html
+!desktop/*.html
+kasas-chart.html
+/tmp-*
+*.tmp
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+
+# OS
+.DS_Store
