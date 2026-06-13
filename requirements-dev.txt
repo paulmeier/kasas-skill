@@ -1,0 +1,3 @@
+# Dev/CI tooling only (the runtime helpers in scripts/ are stdlib-only).
+# Pinned so CI and local runs agree; dependabot keeps it current.
+ruff==0.15.17

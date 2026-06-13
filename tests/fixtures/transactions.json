@@ -1,0 +1,14 @@
+{"query":"date:2024","total":12,"transactions":[
+ {"id":"t1","account_id":"chk","amount":"4200.00","pending":false,"date":"2024-01-31T00:00:00Z","payee":"Acme Payroll","description":"Salary","memo":"","labels":{"category":"Income"},"source":"simplefin"},
+ {"id":"t2","account_id":"chk","amount":"-1800.00","pending":false,"date":"2024-01-03T00:00:00Z","payee":"Landlord","description":"Rent","labels":{"category":"Housing"},"source":"simplefin"},
+ {"id":"t3","account_id":"chk","amount":"-512.34","pending":false,"date":"2024-01-12T00:00:00Z","payee":"Whole Foods","description":"Groceries","labels":{"category":"Groceries"},"source":"simplefin"},
+ {"id":"t4","account_id":"cc","amount":"-89.99","pending":false,"date":"2024-01-20T00:00:00Z","payee":"Shell","description":"Gas","labels":{"category":"Transport"},"source":"simplefin"},
+ {"id":"t5","account_id":"chk","amount":"4200.00","pending":false,"date":"2024-02-29T00:00:00Z","payee":"Acme Payroll","description":"Salary","labels":{"category":"Income"},"source":"simplefin"},
+ {"id":"t6","account_id":"chk","amount":"-1800.00","pending":false,"date":"2024-02-03T00:00:00Z","payee":"Landlord","description":"Rent","labels":{"category":"Housing"},"source":"simplefin"},
+ {"id":"t7","account_id":"chk","amount":"-623.10","pending":false,"date":"2024-02-14T00:00:00Z","payee":"Whole Foods","description":"Groceries","labels":{"category":"Groceries"},"source":"simplefin"},
+ {"id":"t8","account_id":"cc","amount":"-145.00","pending":true,"date":"2024-02-22T00:00:00Z","payee":"Delta","description":"Flights","labels":{"category":"Travel"},"source":"simplefin"},
+ {"id":"t9","account_id":"chk","amount":"4350.00","pending":false,"date":"2024-03-29T00:00:00Z","payee":"Acme Payroll","description":"Salary + raise","labels":{"category":"Income"},"source":"simplefin"},
+ {"id":"t10","account_id":"chk","amount":"-1800.00","pending":false,"date":"2024-03-03T00:00:00Z","payee":"Landlord","description":"Rent","labels":{"category":"Housing"},"source":"simplefin"},
+ {"id":"t11","account_id":"cc","amount":"-58.20","pending":false,"date":"2024-03-09T00:00:00Z","payee":"Netflix","description":"Subscriptions","labels":{},"source":"simplefin"},
+ {"id":"t12","account_id":"chk","amount":"-744.55","pending":false,"date":"2024-03-18T00:00:00Z","payee":"Whole Foods","description":"Groceries","labels":{"category":"Groceries"},"source":"simplefin"}
+]}

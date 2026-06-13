@@ -1,0 +1,6 @@
+{"accounts":[
+ {"id":"chk","org_id":"o1","name":"Everyday Checking","currency":"USD","balance":"8420.18","balance_date":"2024-06-01T00:00:00Z","source":"simplefin"},
+ {"id":"sav","org_id":"o1","name":"High-Yield Savings","currency":"USD","balance":"21000.00","balance_date":"2024-06-01T00:00:00Z","source":"simplefin"},
+ {"id":"cc","org_id":"o2","name":"Visa Credit Card","currency":"USD","balance":"-1840.55","balance_date":"2024-06-01T00:00:00Z","source":"simplefin"},
+ {"id":"eur","org_id":"o3","name":"EU Account","currency":"EUR","balance":"980.00","balance_date":"2024-06-01T00:00:00Z","source":"manual"}
+]}

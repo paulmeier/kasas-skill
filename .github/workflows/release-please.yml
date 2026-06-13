@@ -1,0 +1,53 @@
+name: Release
+
+on:
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    name: Release Please
+    runs-on: ubuntu-latest
+    outputs:
+      release_created: ${{ steps.release.outputs.release_created }}
+      tag_name: ${{ steps.release.outputs.tag_name }}
+    steps:
+      # Maintains a release PR (CHANGELOG + version bump in plugin.json) from
+      # Conventional Commits; merging it creates the tag + GitHub Release.
+      - uses: googleapis/release-please-action@v5
+        id: release
+        with:
+          # A PAT (vs the default GITHUB_TOKEN) makes the release PR trigger CI,
+          # so its checks run. Falls back to GITHUB_TOKEN if the secret is unset.
+          token: ${{ secrets.RELEASE_PLEASE_TOKEN || github.token }}
+          config-file: release-please-config.json
+          manifest-file: .release-please-manifest.json
+
+  bundle:
+    name: Bundle
+    needs: release-please
+    if: ${{ needs.release-please.outputs.release_created }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+      - name: Package the installable plugin
+        env:
+          TAG: ${{ needs.release-please.outputs.tag_name }}
+        run: |
+          name="kasas-skill_${TAG}"
+          mkdir -p "dist/${name}"
+          cp -r .claude-plugin .mcp.json skills agents scripts desktop \
+                README.md LICENSE CHANGELOG.md "dist/${name}/"
+          ( cd dist && zip -r "${name}.zip" "${name}" >/dev/null )
+          ( cd dist && sha256sum "${name}.zip" > "${name}.zip.sha256" )
+      - name: Attach to the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          TAG: ${{ needs.release-please.outputs.tag_name }}
+        run: gh release upload "${TAG}" dist/*.zip dist/*.sha256 --clobber

@@ -1,0 +1,16 @@
+# Tool configuration only — kasas-skill ships no installable Python package,
+# just the stdlib helper scripts in scripts/ and the dev tooling in tools/tests/.
+
+[tool.ruff]
+line-length = 100
+target-version = "py38"
+extend-exclude = [".venv"]
+
+[tool.ruff.lint]
+# Essentials: pycodestyle errors/warnings, pyflakes (undefined names, unused
+# imports), and import ordering. Deliberately conservative to avoid style churn
+# in the hand-written SVG renderer.
+select = ["E", "F", "W", "I"]
+
+[tool.ruff.format]
+quote-style = "double"
