@@ -6,7 +6,7 @@ PY ?= python3
 RUFF := $(shell command -v ruff 2>/dev/null || echo "uvx ruff")
 
 .DEFAULT_GOAL := ci
-.PHONY: ci validate lint fmt fmt-check test claude-validate help
+.PHONY: ci validate lint fmt fmt-check test claude-validate mcpb mcpb-validate help
 
 ci: validate lint fmt-check test ## Everything CI runs
 
@@ -27,6 +27,12 @@ fmt-check: ## Fail if anything is not formatted
 
 test: ## Run the pipeline smoke tests
 	$(PY) -m unittest discover -s tests -v
+
+mcpb-validate: ## Validate the Claude Desktop extension manifest (requires Node)
+	npx -y @anthropic-ai/mcpb@2 validate desktop/mcpb/manifest.json
+
+mcpb: ## Build the Claude Desktop extension -> desktop/kasas.mcpb (requires Node)
+	npx -y @anthropic-ai/mcpb@2 pack desktop/mcpb desktop/kasas.mcpb
 
 help: ## List targets
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | \
