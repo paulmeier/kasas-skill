@@ -2,7 +2,7 @@
   "$schema": "https://json.schemastore.org/claude-code-plugin-manifest.json",
   "name": "kasas",
   "displayName": "kasas — financial planning & review",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Full MCP access to your kasas financial ledger, plus skills for charts, cash-flow, net worth, spending analysis, categorization, periodic review, and forward-looking financial planning. Works in Claude Code and Claude Desktop.",
   "author": {
     "name": "Paul Meier"

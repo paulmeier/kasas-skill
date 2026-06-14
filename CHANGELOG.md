@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.3.0](https://github.com/paulmeier/kasas-skill/compare/v0.2.0...v0.3.0) (2026-06-14)
+
+
+### Features
+
+* one-click Claude Desktop install via .mcpb extension ([d0c78f9](https://github.com/paulmeier/kasas-skill/commit/d0c78f972911a7723aea02258c7cc532bb00f862))
+* one-click Claude Desktop install via .mcpb extension ([abda66c](https://github.com/paulmeier/kasas-skill/commit/abda66cd259d47023315b3a5081549068c77a0c3))
+
 ## [0.2.0](https://github.com/paulmeier/kasas-skill/compare/v0.1.0...v0.2.0) (2026-06-13)
 
 
