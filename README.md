@@ -75,6 +75,8 @@ Claude Desktop supports the two pieces of this plugin that matter for finance wo
 
 ### 1. Connect kasas (MCP)
 
+**Easiest — one‑click extension.** Build the `kasas.mcpb` Desktop Extension and open it (or add it via **Settings → Extensions**). It prompts for your kasas binary and `config.toml` paths and wires the tokenless local stdio connection for you — see [`desktop/mcpb/`](desktop/mcpb) (`make mcpb`).
+
 Pick whichever fits your setup — see [`desktop/claude_desktop_config.example.json`](desktop/claude_desktop_config.example.json) for ready‑to‑paste blocks:
 
 - **Local stdio (simplest, tokenless):** add a `kasas` server that runs the kasas binary's MCP subcommand —

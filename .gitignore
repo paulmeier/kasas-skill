@@ -10,5 +10,8 @@ __pycache__/
 *.pyc
 .venv/
 
+# Built Claude Desktop extension (source lives in desktop/mcpb/; attach to releases)
+*.mcpb
+
 # OS
 .DS_Store

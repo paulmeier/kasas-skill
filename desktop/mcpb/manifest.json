@@ -1,0 +1,74 @@
+{
+  "manifest_version": "0.3",
+  "name": "kasas",
+  "display_name": "kasas — financial planning & review",
+  "version": "0.1.0",
+  "description": "Full MCP access to your kasas financial ledger — accounts, transactions, labels, rules, events, sync, and market data — for charts, review, and planning in Claude Desktop.",
+  "long_description": "Connects Claude Desktop to your self-hosted [kasas](https://github.com/paulmeier/kasas) ledger over a local, tokenless stdio transport. Claude Desktop launches the kasas binary's MCP subcommand with its bundled Node runtime, exposing every kasas read/write/admin tool as first-class tools in chat. Pair with the kasas Skills (uploaded via Settings → Capabilities) for cash-flow, spending-breakdown, net-worth, categorize, financial-review, financial-plan, and chart workflows. All money math is penny-accurate — kasas returns signed decimal strings, never floats.",
+  "author": {
+    "name": "Paul Meier",
+    "url": "https://github.com/paulmeier"
+  },
+  "homepage": "https://github.com/paulmeier/kasas-skill",
+  "documentation": "https://github.com/paulmeier/kasas-skill#install--claude-desktop",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/paulmeier/kasas-skill"
+  },
+  "license": "MIT",
+  "keywords": [
+    "kasas",
+    "mcp",
+    "finance",
+    "financial-planning",
+    "budgeting",
+    "charts",
+    "ledger",
+    "personal-finance"
+  ],
+  "server": {
+    "type": "node",
+    "entry_point": "server/index.js",
+    "mcp_config": {
+      "command": "node",
+      "args": [
+        "${__dirname}/server/index.js",
+        "${user_config.kasas_binary}",
+        "${user_config.kasas_config}"
+      ]
+    }
+  },
+  "tools_generated": true,
+  "tools": [
+    { "name": "list_accounts", "description": "List accounts with balances and currencies." },
+    { "name": "list_transactions", "description": "List transactions for an account." },
+    { "name": "search_transactions", "description": "Search transactions with the kasas query language." },
+    { "name": "list_labels", "description": "List labels used across transactions." },
+    { "name": "list_rules", "description": "List auto-categorization rules." },
+    { "name": "create_rule", "description": "Create a rule that labels matching transactions." },
+    { "name": "run_rules", "description": "Apply rules to backfill labels." },
+    { "name": "list_market_series", "description": "List tracked market data series." },
+    { "name": "get_market_points", "description": "Fetch points for a market series." },
+    { "name": "sync_status", "description": "Report source sync status." }
+  ],
+  "user_config": {
+    "kasas_binary": {
+      "type": "file",
+      "title": "kasas binary",
+      "description": "Path to your kasas executable. On a Sillview-managed install this is ~/Library/Application Support/Sillview/kasas/bin/kasas.",
+      "required": true
+    },
+    "kasas_config": {
+      "type": "file",
+      "title": "kasas config.toml",
+      "description": "Path to your kasas TOML config (passed as -config). It defines the SQLite database the MCP server reads. Sillview install: ~/Library/Application Support/Sillview/kasas/config.toml.",
+      "required": true
+    }
+  },
+  "compatibility": {
+    "platforms": ["darwin", "win32", "linux"],
+    "runtimes": {
+      "node": ">=18.0.0"
+    }
+  }
+}
